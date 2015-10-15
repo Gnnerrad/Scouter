@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.darre_000.scoutr.MainActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/mapArea"
+        android:background="#44af5a"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/topBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/cameraButton"
+            android:src="@drawable/pic"
+            android:layout_marginRight="10dp"
+            android:layout_width="@dimen/box_size"
+            android:layout_height="@dimen/box_size"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:scaleType="fitCenter"
+            android:tint="#333333"
+            android:background="@android:color/transparent"
+            />
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:background="@android:color/transparent"
+        />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottomBar"
+        android:layout_alignParentBottom="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/favourites"
+            android:src="@drawable/favourite"
+            android:tint="#333333"
+            android:layout_margin="10dp"
+            android:layout_width="@dimen/box_size"
+            android:layout_height="@dimen/box_size"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            />
+
+        <Button
+            android:id="@+id/scoutr_social_network"
+            style="?android:borderlessButtonStyle"
+            android:text="@string/Scoutr_button"
+            android:typeface="serif"
+            android:textSize="20dp"
+            android:tint="#333333"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:background="@android:color/transparent"
+            />
+
+        <ImageButton
+            android:id="@+id/bottomMenuButton"
+            android:src="@drawable/menu"
+            android:tint="#333333"
+            android:layout_margin="10dp"
+            android:layout_width="@dimen/box_size"
+            android:layout_height="@dimen/box_size"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            />
+
+    </RelativeLayout>
+</RelativeLayout>

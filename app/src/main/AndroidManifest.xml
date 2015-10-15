@@ -31,9 +31,14 @@
         <activity
             android:name=".Home_Page_Map_Activity"
             android:label="@string/title_activity_home__page__map_" >
+
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
