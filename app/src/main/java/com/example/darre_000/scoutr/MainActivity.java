@@ -1,22 +1,34 @@
 package com.example.darre_000.scoutr;
 
-import android.app.ActionBar;
+import android.location.Location;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SearchView;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 public class MainActivity extends AppCompatActivity {
+
+    private GoogleMap mMap;
+    private GPSTracker gps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setUpMapIfNeeded();
+
+
 
 //Top Bar Stuff
         View topBar = findViewById(R.id.topBarLayout);
@@ -37,9 +49,7 @@ public class MainActivity extends AppCompatActivity {
 //End Top Bar Stuff
 
 
-
 //Bottom Bar Stuff
-
 //LeftButton
         ImageButton favourites = (ImageButton) findViewById(R.id.favourites);
         favourites.setOnClickListener(new View.OnClickListener() {
@@ -71,4 +81,43 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-}
+//End Bottom Bar
+
+
+
+//Map Stuff
+        private void setUpMapIfNeeded() {
+            // Do a null check to confirm that we have not already instantiated the map.
+            if (mMap == null) {
+                // Try to obtain the map from the SupportMapFragment.
+                mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
+                        .getMap();
+                // Check if we were successful in obtaining the map.
+                if (mMap != null) {
+                    setUpMap();
+                }
+            }
+        }
+
+        private void setUpMap() {
+            try {
+                Location location = gps.getLocation();
+                mMap.setMyLocationEnabled(true);
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 1));
+                mMap.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(), location.getLongitude())).title("I AM HERE"));
+            } catch (Exception e){
+                LatLng sydney = new LatLng(-33.867, 151.206);
+
+                mMap.setMyLocationEnabled(true);
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 13));
+
+                mMap.addMarker(new MarkerOptions()
+                        .title("Sydney")
+                        .snippet("The most populous city in Australia.")
+                        .position(sydney));
+            }
+        }
+//End Map Stuff
+
+    }
+

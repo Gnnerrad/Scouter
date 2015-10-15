@@ -9,11 +9,15 @@
 
 
     <RelativeLayout
-        android:id="@+id/mapArea"
-        android:background="#44af5a"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/map"
+            tools:context=".Home_Page_Map_Activity"
+            android:name="com.google.android.gms.maps.SupportMapFragment" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -23,7 +27,7 @@
 
         <ImageButton
             android:id="@+id/cameraButton"
-            android:src="@drawable/pic"
+            android:background="@drawable/camera_icon"
             android:layout_marginRight="10dp"
             android:layout_width="@dimen/box_size"
             android:layout_height="@dimen/box_size"
@@ -32,7 +36,6 @@
             android:layout_alignParentEnd="true"
             android:scaleType="fitCenter"
             android:tint="#333333"
-            android:background="@android:color/transparent"
             />
 
         <SearchView
@@ -53,15 +56,14 @@
 
         <ImageButton
             android:id="@+id/favourites"
-            android:src="@drawable/favourite"
-            android:tint="#333333"
             android:layout_margin="10dp"
             android:layout_width="@dimen/box_size"
             android:layout_height="@dimen/box_size"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:scaleType="fitCenter"
-            android:background="@android:color/transparent"
+            android:background="@drawable/favourites_star"
+
             />
 
         <Button
@@ -81,7 +83,7 @@
 
         <ImageButton
             android:id="@+id/bottomMenuButton"
-            android:src="@drawable/menu"
+            android:background="@drawable/menu"
             android:tint="#333333"
             android:layout_margin="10dp"
             android:layout_width="@dimen/box_size"
@@ -90,7 +92,6 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:scaleType="fitCenter"
-            android:background="@android:color/transparent"
             />
 
     </RelativeLayout>

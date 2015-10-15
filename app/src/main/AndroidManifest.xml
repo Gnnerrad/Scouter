@@ -29,11 +29,6 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".Home_Page_Map_Activity"
-            android:label="@string/title_activity_home__page__map_" >
-
-        </activity>
-        <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" >
